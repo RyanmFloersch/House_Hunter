@@ -9,5 +9,11 @@ const connection = !PORT ? new Sequelize(
     host: '127.0.0.1',
     dialect: 'mysql'
   }
-) : new Sequelize("mysql://x2h2xa2ceclb7uj7:u8lsk6by4jahdc02@exbodcemtop76rnz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/emunqlq3i5hs5iph");
+) : new Sequelize("mysql://houseHunterAdmin:Mscat123@househunter-database.cmyoklnovea9.us-east-1.rds.amazonaws.com:3306/houseHunter_database");
+
+module.exports = connection;
+
+console.log(connection);
+
+
 module.exports = connection;

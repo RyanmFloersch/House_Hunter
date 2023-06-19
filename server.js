@@ -31,7 +31,7 @@ app.set('views', './views');
 // Setup the req.session object for our routes
 app.use(session({
   // Required to be used to validate the client cookie matches the session secret
-  secret: "SUPER_SECRET",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }));
