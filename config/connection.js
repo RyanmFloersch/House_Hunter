@@ -1,17 +1,17 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 const PORT = process.env.PORT;
+// If ther is no port instantiate the sequelize with env and localhost else if there is a port initialize to the database
 const connection = !PORT ? new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
-    host: '127.0.0.1',
+    host: 'localhost',    
     dialect: 'mysql'
   }
-) : new Sequelize("mysql://houseHunterAdmin:Mscat123@househunter-database.cmyoklnovea9.us-east-1.rds.amazonaws.com:3306/houseHunter_database");
-
-module.exports = connection;
+) : new Sequelize(process.env.DB_CONNECT);
+// new Sequelize("mysql://"+ process.env.DB_USERNAME+":"+process.env.DB_PASSWORD+"@"+process.env.DB_ENDPOINT+":3306/"+process.env.DB_NAME)
 
 console.log(connection);
 
